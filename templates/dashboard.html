@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="static/img/logo.PNG">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Census Income Dashboard </title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="static/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="static/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="static/css/demo.css" rel="stylesheet" />
+
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="static/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar" data-color="blue" data-image="static/img/sidebar-2.jpg">
+
+    <!--
+
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
+
+    -->
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="https://github.com/alokrajg/Census-Income-Prediction" class="simple-text">
+                    Income Dashboard
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li class="active">
+                    <a href="/dashboard">
+                        <i class="pe-7s-graph"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/data">
+                        <i class="pe-7s-note2"></i>
+                        <p>Data</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/form_prediction">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>ML Models</p>
+                    </a>    
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/alok-raj-gupta-8b7b26150/">
+                        <i class="pe-7s-user"></i>
+                        <p>Author</p>
+                    </a>
+                </li>
+                
+                
+                
+				</ul>
+    	</div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/dashboard">Dashboard</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-dashboard"></i>
+								<p class="hidden-lg hidden-md">Dashboard</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+<div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+
+                            <div class="header">
+                                <h4 class="title">Age</h4>
+                                <p class="category">Distribution of person's age</p>
+                            </div>
+                            <div class="chart" id="bargraph1">
+                                    <script>
+                                        var graphs1 = {{plot1 | safe}};
+                                        Plotly.plot('bargraph1',graphs1,{});
+                                    </script>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+
+                            <div class="header">
+                                <h4 class="title">Hours per week</h4>
+                                <p class="category">Individual's working hour per week</p>
+                            </div>
+                            <div class="chart" id="bargraph2">
+                                    <script>
+                                        var graphs2 = {{plot2 | safe}};
+                                        Plotly.plot('bargraph2',graphs2,{});
+                                    </script>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+
+                            <div class="header">
+                                <h4 class="title">Marital Status</h4>
+                                <p class="category">Individual's Marital Status</p>
+                            </div>
+                            <div class="chart" id="bargraph3">
+                                    <script>
+                                        var graphs3 = {{plot3 | safe}};
+                                        Plotly.plot('bargraph3',graphs3,{});
+                                    </script>
+                                </div>
+                        </div>
+                    </div>
+          </div>
+      
+       
+
+<div class="column">
+    <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+
+                            <div class="header">
+                                <h4 class="title">Relationship</h4>
+                                <p class="category">Individual's relation in a family</p>
+                            </div>
+                            <div class="chart" id="bargraph4">
+                                    <script>
+                                        var graphs4 = {{plot4 | safe}};
+                                        Plotly.plot('bargraph4',graphs4,{});
+                                    </script>
+                                </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="card">
+
+                            <div class="header">
+                                <h4 class="title">Capital Gain</h4>
+                                <p class="category">Income from investment sources other than salary/wages</p>
+                            </div>
+                            <div class="chart" id="bargraph5">
+                                    <script>
+                                        var graphs5 = {{plot5 | safe}};
+                                        Plotly.plot('bargraph5',graphs5,{});
+                                    </script>
+                                </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="card">
+
+                            <div class="header">
+                                <h4 class="title">Education</h4>
+                                <p class="category">Individual's highest education degree </p>
+                            </div>
+                            <div class="chart" id="bargraph6">
+                                    <script>
+                                        var graphs6 = {{plot6 | safe}};
+                                        Plotly.plot('bargraph6',graphs6,{});
+                                    </script>
+                                </div>
+                        </div>
+                    </div>
+
+</div>
+</div>
+
+
+<div class="column">
+    <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+
+                            <div class="header">
+                                <h4 class="title">Occupation</h4>
+                                <p class="category">Individual's occupation</p>
+                            </div>
+                            <div class="chart" id="bargraph7">
+                                    <script>
+                                        var graphs7 = {{plot7 | safe}};
+                                        Plotly.plot('bargraph7',graphs7,{});
+                                    </script>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+
+                            <div class="header">
+                                <h4 class="title">Capital-Loss</h4>
+                                <p class="category">Loss in Income from investment sources other than salary/wages</p>
+                            </div>
+                            <div class="chart" id="bargraph8">
+                                    <script>
+                                        var graphs8 = {{plot8 | safe}};
+                                        Plotly.plot('bargraph8',graphs8,{});
+                                    </script>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+
+                            <div class="header">
+                                <h4 class="title">Gender</h4>
+                                <p class="category">Individual's gender</p>
+                            </div>
+                            <div class="chart" id="bargraph9">
+                                    <script>
+                                        var graphs9 = {{plot9 | safe}};
+                                        Plotly.plot('bargraph9',graphs9,{});
+                                    </script>
+                                </div>
+                        </div>
+                    </div>
+
+
+
+
+
+    </div>  
+
+
+
+
+    </div>
+</div>
+
+
+</body>
+
+    <!--   Core JS Files   -->
+    <script src="static/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+	<script src="static/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<!--  Charts Plugin -->
+	<script src="static/js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="static/js/bootstrap-notify.js"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+	<script src="static/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+	<script src="static/js/demo.js"></script>
+
+	
+
+</html>
